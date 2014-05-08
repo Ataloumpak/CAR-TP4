@@ -1,4 +1,4 @@
-package ejb;
+package livres;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -25,7 +25,6 @@ public class Livre {
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	public String getTitre() {
 		return titre;
 	}
