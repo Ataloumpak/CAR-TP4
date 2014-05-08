@@ -5,17 +5,11 @@ import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
 @Table(name = "Livre")
-@NamedQueries(
-{
-    @NamedQuery(name = "Livre.findAll", query = "SELECT * from Livre")
-})
 public class Livre implements Serializable {
 
     private String titre;

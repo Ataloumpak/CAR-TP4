@@ -5,11 +5,23 @@
 <title>Inserer un bouquin</title>
 </head>
 <body>
-    <form action="RecapitulatifLivre.jsp" method="get">
-            <p>Titre: <input type="text" name="titre"></p>
-            <p>Auteur: <input type="text" name="auteur"></p>
-            <p>Année: <input type="text" name="annee"></p>
-            <p><input type="submit" value="Envoyer"> <input type="reset" value="Remise à Zéro"></p>
+    <form action="./AjouterLivre" method="GET">
+            <div>
+                Titre: <input type="text" name="titre">
+            </div>
+            <div>
+                Auteur: <input type="text" name="auteur">
+            </div>
+            <div>
+                <dl><dt>Date</dt>
+                    <dd>Jour: <input type="text" name="jour"></dd>
+                    <dd>Mois: <input type="text" name="mois"></dd>
+                    <dd>Année: <input type="text" name="annee"></dd>
+                </dl>
+            </div>
+            <div>
+                <input type="submit" value="Envoyer"> <input type="reset" value="Remise à Zéro">
+            </div>
 	</form>
 </body>
 </html>
