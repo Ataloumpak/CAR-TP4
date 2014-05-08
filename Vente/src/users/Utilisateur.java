@@ -1,10 +1,16 @@
 package users;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class Utilisateur {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	int id;
 	String login;
 	String pwd;
+	boolean admin;
 
 	public Utilisateur(String login, String pwd) {
 		super();
@@ -12,6 +18,8 @@ public class Utilisateur {
 		this.pwd = pwd;
 	}
 
+	
+	
 	public Utilisateur() {
 		super();
 	}
@@ -31,6 +39,14 @@ public class Utilisateur {
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 	
 	
