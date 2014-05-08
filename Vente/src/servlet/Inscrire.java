@@ -11,15 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import users.Authentificateur;
 import users.AuthentificateurLocal;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class inscrire
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet("/inscrire")
+public class Inscrire extends HttpServlet {
+	private static final long serialVersionUID = 1L;	
 	
 	@EJB 
 	private AuthentificateurLocal a;
@@ -27,7 +26,7 @@ public class Login extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public Inscrire() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -49,12 +48,8 @@ public class Login extends HttpServlet {
 		if(login!=null && pwd!=null)
 		{
 			try {
-				boolean admin = a.connexion(login, pwd);
-				HttpSession session = request.getSession(true);
-				session.setAttribute("login", login);
-				session.setAttribute("pwd", pwd);
-				session.setAttribute("admin", admin);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/Web/main.jsp");
+				a.ajouterUtilisateur(login, pwd);;
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/Web/index.jsp?inscrire=1");
 				dispatcher.forward(request, response);
 			
 			} catch (Exception e) {

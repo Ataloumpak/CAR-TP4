@@ -7,9 +7,15 @@
 <title>Projet de CAR</title>
 </head>
 <body>
-	<form action="index.jsp" method="post">
+	<form action="../Login" method="post">
 		<label for="login">Login</label> <input type="text" name="login">
 		<label for="login">Mot de passe</label> <input type="text" name="pwd">
+		<input type="submit" value="Connexion">
+	</form>
+	<form action="../inscrire" method="post">
+		<label for="login">Login</label> <input type="text" name="login">
+		<label for="login">Mot de passe</label> <input type="text" name="pwd">
+		<input type="submit" value="Inscription">
 	</form>
 </body>
 </html>

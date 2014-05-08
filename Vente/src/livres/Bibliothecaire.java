@@ -21,12 +21,16 @@ public class Bibliothecaire implements BibliothecaireLocal,
 	}
 
 	public void ajouterLivres() {
-		em.persist(new Livre("20 miles au lieu de la mer", "Charlie",
-				new GregorianCalendar(2014, 5, 12)));
-		em.persist(new Livre("Jurrassic ta race", "Quentin",
-				new GregorianCalendar(2014, 5, 12)));
-		em.persist(new Livre("Comment que dota c'est mieux que tout!",
-				"Michael", new GregorianCalendar(2014, 5, 12)));
+		try{
+			em.persist(new Livre("20 miles au lieu de la mer", "Charlie",
+					new GregorianCalendar(2014, 5, 12)));
+			em.persist(new Livre("Jurrassic ta race", "Quentin",
+					new GregorianCalendar(2014, 5, 12)));
+			em.persist(new Livre("Comment que dota c'est mieux que tout!",
+					"Michael", new GregorianCalendar(2014, 5, 12)));
+		} catch (Exception e) {
+			
+		}
 
 	}
 
