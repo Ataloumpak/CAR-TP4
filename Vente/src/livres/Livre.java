@@ -4,11 +4,15 @@ import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Livre {
+	@Id
 	private String titre;
 	private String auteur;
+	@Temporal(TemporalType.DATE)
 	private Calendar date;
 
 	public Livre() {
@@ -20,8 +24,7 @@ public class Livre {
 		this.auteur = auteur;
 		this.date = date;
 	}
-
-	@Id
+	
 	public String getTitre() {
 		return titre;
 	}

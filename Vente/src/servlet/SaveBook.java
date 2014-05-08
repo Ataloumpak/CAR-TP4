@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import livres.Bibliothecaire;
 import livres.BibliothecaireLocal;
 
 /**
@@ -41,11 +40,11 @@ public class SaveBook extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.write("Debut travail");
         bibliothecaire.ajouterLivres();
-       /* ArrayList<String> auteurs = (ArrayList<String>) bibliothecaire.getAuteur();
+        ArrayList<String> auteurs = (ArrayList<String>) bibliothecaire.getAuteur();
 
         for (String auteur : auteurs) {
             out.println(auteur);
-        }*/
+        }
     }
 
     /**
