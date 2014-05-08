@@ -10,39 +10,45 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import livres.Bibliothecaire;
+import livres.BibliothecaireLocal;
 
 /**
- * Servlet implementation class SaveBook
+ * Servlet implementation class AuthorsListing
  */
-@WebServlet("/SaveBook")
-public class SaveBook extends HttpServlet {
-
+@WebServlet("/AuthorsListing")
+public class AuthorsListing extends HttpServlet {
     @EJB
-    private Bibliothecaire bibliothecaire;
+    private BibliothecaireLocal bibliothecaire;
+
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SaveBook() {
+    public AuthorsListing() {
         super();
         // TODO Auto-generated constructor stub
     }
 
     /**
+     * @param request
+     * @param response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
      * response)
      */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        bibliothecaire.ajouterLivres();
         ArrayList<String> auteurs = (ArrayList<String>) bibliothecaire.getAuteurs();
 
+        out.println("<div><h1>Liste des auteurs:</h1><ul>");
         for (String auteur : auteurs) {
-            out.println(auteur);
+            out.println("<li>" + auteur + "</li>");
         }
+        out.println("</ul>");
     }
 
     /**
