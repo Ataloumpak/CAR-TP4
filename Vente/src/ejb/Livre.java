@@ -1,5 +1,6 @@
 package ejb;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,15 +10,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Livre {
-	private long id;
 	private String titre;
 	private String auteur;
-	private Date date;
+	private Calendar date;
 
 	public Livre() {
 	}
 
-	public Livre(String titre, String auteur, Date date) {
+	public Livre(String titre, String auteur, Calendar date) {
 		super();
 		this.titre = titre;
 		this.auteur = auteur;
@@ -26,14 +26,6 @@ public class Livre {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public String getTitre() {
 		return titre;
 	}
@@ -50,11 +42,11 @@ public class Livre {
 		this.auteur = auteur;
 	}
 
-	public Date getDate() {
+	public Calendar getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Calendar date) {
 		this.date = date;
 	}
 
