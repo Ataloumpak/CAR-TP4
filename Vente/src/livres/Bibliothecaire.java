@@ -4,13 +4,14 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 @Stateless
-public class Bibliothecaire implements BibliothecaireItf {
+public class Bibliothecaire implements BibliothecaireLocal, BibliothecaireRemote {
 	@PersistenceContext
 	private EntityManager em;
 
@@ -37,5 +38,11 @@ public class Bibliothecaire implements BibliothecaireItf {
 		Query q = em.createQuery("SELECT auteur from Livre l");
 		List<String> list = (List<String>) q.getResultList();
 		return list;
+	}
+	
+	@PreDestroy
+	public void destruct()
+	{
+	    em.close();
 	}
 }

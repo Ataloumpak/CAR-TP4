@@ -2,6 +2,8 @@ package users;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * Session Bean implementation class Authenticateur
@@ -10,17 +12,22 @@ import javax.ejb.Stateless;
 @LocalBean
 public class Authentificateur implements AuthentificateurItf {
 
-    /**
-     * Default constructor. 
-     */
-    public Authentificateur() {
-        // TODO Auto-generated constructor stub
-    }
+	@PersistenceContext
+	private EntityManager em;
 
+	
+	
 	@Override
 	public boolean connexion(String login, String pwd) {
-		// TODO Auto-generated method stub
 		return false;
+ 	}
+
+
+
+	@Override
+	public void ajouterUtilisateur(String login, String pwd) {
+		Utilisateur u = new Utilisateur(login, pwd);
+		em.persist(u);
 	}
 
 
